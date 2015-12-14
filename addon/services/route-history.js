@@ -19,6 +19,15 @@ export default Ember.Service.extend({
 	current: '',
 
 	/**
+	 * Previous route
+	 * @param  {Array} 'history' The dependent key.
+	 * @return The route previously visited
+	 */
+	previous: Ember.computed('history.[]', function() {
+		return this.get('history').get('firstObject');
+	}),
+
+	/**
 	 * Array contening the history of routes that have been visited.
 	 *
 	 * @property history
